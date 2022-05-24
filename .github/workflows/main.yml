@@ -55,8 +55,3 @@ jobs:
               destination-repository-name: 'new.io'
               user-email: '2020103486@pnu.edu.ru'
               commit-message: 'doxygen'
-
-          
-          
-          
-
