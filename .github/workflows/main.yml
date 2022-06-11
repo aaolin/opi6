@@ -55,3 +55,15 @@ jobs:
               destination-repository-name: 'new.io'
               user-email: '2020103486@pnu.edu.ru'
               commit-message: 'doxygen'
+              
+        #lab8
+    job_compile:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - name: compile
+            run: |
+              sudo apt-get install g++-10
+              g++ hello.cpp -o hello.exe
+              ls
+
