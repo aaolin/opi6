@@ -11,50 +11,6 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-    my_first_job:
-
-        runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
-        steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-          - name: chekout
-            uses: actions/checkout@v1
-
-          - name: check
-            id: check_files
-            uses: andstor/file-existence-action@v1
-            with:
-              files: "test_travis.txt"
-
-          - name: File exists
-            if: steps.check_files.outputs.files_exists == 'true'
-            # Only runs if all of the files exists
-            run: echo All files exists!
-            
-            # 7 opi
-          - uses: actions/checkout@v2
-          - name: DoxygenDocumentationCreate
-            uses: mattnotmitt/doxygen-action@v1.9.3
-            with:
-              doxyfile-path: './Doxyfile'
-          - name: upload result
-            uses: actions/upload-artifact@v2
-            with:
-              path: doc
-              name: Doxygen
-          - name: Push to IO repository 
-            uses: cpina/github-action-push-to-another-repository@v1.4.1
-            env: 
-              API_TOKEN_GITHUB: ${{ secrets.OPI_7_TOKEN }}
-            with: 
-              source-directory: 'doc'
-              destination-github-username: 'aaolin'
-              destination-repository-name: 'new.io'
-              user-email: '2020103486@pnu.edu.ru'
-              commit-message: 'doxygen'
               
         #lab8
     job_compile:
